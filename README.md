@@ -1,2 +1,2 @@
 # KiritaniH.github.io
-Now
+Now it is just for STA323 project1
