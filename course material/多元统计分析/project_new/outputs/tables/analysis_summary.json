@@ -1,0 +1,8 @@
+{
+  "best_k": 3,
+  "cluster_silhouette": 0.4202640485388453,
+  "kmeans_vs_hier_ari": 0.843845960231563,
+  "kmeans_vs_gmm_ari": 0.9698634614901054,
+  "real_client_positive_return_improvement_ratio": 1.0,
+  "real_client_positive_drawdown_improvement_ratio": 1.0
+}

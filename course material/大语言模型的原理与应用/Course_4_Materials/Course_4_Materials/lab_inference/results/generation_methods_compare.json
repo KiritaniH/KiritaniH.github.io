@@ -1,0 +1,16 @@
+{
+  "manual": {
+    "generated_text": "人工智能的______，是人工智能的______，是人工智能的______，是人工智能的______，是人工智能的______，是",
+    "num_new_tokens": 30,
+    "latency_s": 1.3676027999899816,
+    "tokens_per_sec": 21.936193754663098,
+    "method": "manual_decode"
+  },
+  "transformers": {
+    "generated_text": "人工智能的______，是人工智能的______，是人工智能的______，是人工智能的______，是人工智能的______，是",
+    "num_new_tokens": 30,
+    "latency_s": 1.076015999977244,
+    "tokens_per_sec": 27.880626310979064,
+    "method": "transformers_generate"
+  }
+}

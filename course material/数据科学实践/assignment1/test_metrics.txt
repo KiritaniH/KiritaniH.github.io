@@ -1,0 +1,5 @@
+===== Test Metrics =====
+Accuracy        : 0.6333
+Macro Precision : 0.6416
+Macro Recall    : 0.6241
+Macro F1        : 0.6185

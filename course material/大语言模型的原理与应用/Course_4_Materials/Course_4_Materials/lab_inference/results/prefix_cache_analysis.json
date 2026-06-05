@@ -1,0 +1,12 @@
+{
+  "shared_prefix": {
+    "avg_latency_s": 2.0555675400188194,
+    "avg_tokens_per_sec": 31.186079457259325,
+    "total_requests": 5
+  },
+  "different_prefix": {
+    "avg_latency_s": 2.004705579997972,
+    "avg_tokens_per_sec": 31.927748513915997,
+    "total_requests": 5
+  }
+}

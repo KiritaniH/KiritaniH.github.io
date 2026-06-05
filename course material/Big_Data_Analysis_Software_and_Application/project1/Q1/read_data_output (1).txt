@@ -1,0 +1,54 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/03/31 04:59:32 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/03/31 04:59:33 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+==================================================
+DataFrame Schema:
+==================================================
+root
+ |-- Diabetes_012: double (nullable = true)
+ |-- HighBP: double (nullable = true)
+ |-- HighChol: double (nullable = true)
+ |-- CholCheck: double (nullable = true)
+ |-- BMI: double (nullable = true)
+ |-- Smoker: double (nullable = true)
+ |-- Stroke: double (nullable = true)
+ |-- HeartDiseaseorAttack: double (nullable = true)
+ |-- PhysActivity: double (nullable = true)
+ |-- Fruits: double (nullable = true)
+ |-- Veggies: double (nullable = true)
+ |-- HvyAlcoholConsump: double (nullable = true)
+ |-- AnyHealthcare: double (nullable = true)
+ |-- NoDocbcCost: double (nullable = true)
+ |-- GenHlth: double (nullable = true)
+ |-- MentHlth: double (nullable = true)
+ |-- PhysHlth: double (nullable = true)
+ |-- DiffWalk: double (nullable = true)
+ |-- Sex: double (nullable = true)
+ |-- Age: double (nullable = true)
+ |-- Education: double (nullable = true)
+ |-- Income: double (nullable = true)
+
+
+==================================================
+Preview (first 5 rows):
+==================================================
++------------+------+--------+---------+----+------+------+--------------------+------------+------+-------+-----------------+-------------+-----------+-------+--------+--------+--------+---+----+---------+------+
+|Diabetes_012|HighBP|HighChol|CholCheck| BMI|Smoker|Stroke|HeartDiseaseorAttack|PhysActivity|Fruits|Veggies|HvyAlcoholConsump|AnyHealthcare|NoDocbcCost|GenHlth|MentHlth|PhysHlth|DiffWalk|Sex| Age|Education|Income|
++------------+------+--------+---------+----+------+------+--------------------+------------+------+-------+-----------------+-------------+-----------+-------+--------+--------+--------+---+----+---------+------+
+|         0.0|   1.0|     1.0|      1.0|40.0|   1.0|   0.0|                 0.0|         0.0|   0.0|    1.0|              0.0|          1.0|        0.0|    5.0|    18.0|    15.0|     1.0|0.0| 9.0|      4.0|   3.0|
+|         0.0|   0.0|     0.0|      0.0|25.0|   1.0|   0.0|                 0.0|         1.0|   0.0|    0.0|              0.0|          0.0|        1.0|    3.0|     0.0|     0.0|     0.0|0.0| 7.0|      6.0|   1.0|
+|         0.0|   1.0|     1.0|      1.0|28.0|   0.0|   0.0|                 0.0|         0.0|   1.0|    0.0|              0.0|          1.0|        1.0|    5.0|    30.0|    30.0|     1.0|0.0| 9.0|      4.0|   8.0|
+|         0.0|   1.0|     0.0|      1.0|27.0|   0.0|   0.0|                 0.0|         1.0|   1.0|    1.0|              0.0|          1.0|        0.0|    2.0|     0.0|     0.0|     0.0|0.0|11.0|      3.0|   6.0|
+|         0.0|   1.0|     1.0|      1.0|24.0|   0.0|   0.0|                 0.0|         1.0|   1.0|    1.0|              0.0|          1.0|        0.0|    2.0|     3.0|     0.0|     0.0|0.0|11.0|      5.0|   4.0|
++------------+------+--------+---------+----+------+------+--------------------+------------+------+-------+-----------------+-------------+-----------+-------+--------+--------+--------+---+----+---------+------+
+only showing top 5 rows
+
+==================================================
+Basic Info:
+==================================================
+Total rows: 253680
+Total columns: 22
+Columns: ['Diabetes_012', 'HighBP', 'HighChol', 'CholCheck', 'BMI', 'Smoker', 'Stroke', 'HeartDiseaseorAttack', 'PhysActivity', 'Fruits', 'Veggies', 'HvyAlcoholConsump', 'AnyHealthcare', 'NoDocbcCost', 'GenHlth', 'MentHlth', 'PhysHlth', 'DiffWalk', 'Sex', 'Age', 'Education', 'Income']

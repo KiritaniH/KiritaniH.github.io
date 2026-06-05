@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>王洛源 | 个人主页</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --surface-soft: #eef4f2;
+      --text: #202734;
+      --muted: #607086;
+      --line: #dbe3ec;
+      --accent: #2d6f66;
+      --accent-dark: #1d4f48;
+      --gold: #a86c22;
+      --shadow: 0 16px 44px rgba(33, 45, 65, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(219, 227, 236, 0.86);
+      background: rgba(247, 248, 251, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 14px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .brand strong {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 6px 20px rgba(33, 45, 65, 0.05);
+    }
+
+    .nav-tab {
+      min-width: 112px;
+      border: 0;
+      border-radius: 6px;
+      padding: 8px 12px;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 14px;
+      line-height: 1.2;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .nav-tab:hover {
+      background: var(--surface-soft);
+      color: var(--accent-dark);
+    }
+
+    .nav-tab[aria-selected="true"] {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 38px 0 52px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+      align-items: stretch;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero-main,
+    .contact-panel,
+    .section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent-dark);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: 42px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .quick-facts {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .fact {
+      min-height: 92px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-soft);
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .fact strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .contact-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      gap: 22px;
+    }
+
+    .contact-panel p,
+    .section p,
+    .profile-list p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: var(--text);
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-link:hover {
+      border-color: rgba(45, 111, 102, 0.45);
+      text-decoration: none;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.44fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .section {
+      padding: 26px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title span {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .timeline,
+    .profile-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 138px minmax(0, 1fr);
+      gap: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .timeline li:last-child,
+    .profile-list li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .time {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .profile-list li {
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .course-bands {
+      display: grid;
+      gap: 12px;
+    }
+
+    .course-band {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .course-band strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-dark);
+    }
+
+    .project-image {
+      display: block;
+      width: 100%;
+      max-width: 760px;
+      height: auto;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .materials-browser {
+      display: grid;
+      gap: 12px;
+    }
+
+    .material-group {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      overflow: hidden;
+    }
+
+    .material-group summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .material-group summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .material-group summary::after {
+      content: "+";
+      color: var(--accent-dark);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .material-group[open] > summary::after {
+      content: "-";
+    }
+
+    .material-count {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .material-content {
+      display: grid;
+      gap: 10px;
+      padding: 0 14px 14px;
+    }
+
+    .material-subgroup {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: none;
+    }
+
+    .material-subgroup summary {
+      padding: 10px 12px;
+      font-size: 15px;
+    }
+
+    .material-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0 12px 12px;
+      list-style: none;
+    }
+
+    .material-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 40px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: var(--text);
+      overflow-wrap: anywhere;
+    }
+
+    .material-list a:hover {
+      border-color: rgba(45, 111, 102, 0.45);
+      text-decoration: none;
+    }
+
+    .material-type {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .material-loading {
+      margin: 0;
+      padding: 16px;
+      border: 1px dashed #bdcad7;
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: var(--muted);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--accent-dark);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .site-footer {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 32px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-facts {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .nav-tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+      }
+
+      .nav-tab {
+        min-width: 0;
+        padding: 9px 6px;
+      }
+
+      main {
+        padding-top: 24px;
+      }
+
+      .hero-main,
+      .contact-panel,
+      .section {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+
+      .timeline li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .section-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="主导航">
+      <div class="brand">
+        <strong>王洛源</strong>
+        <span>个人主页</span>
+      </div>
+      <div class="nav-tabs" role="tablist" aria-label="页面切换">
+        <button class="nav-tab" type="button" role="tab" aria-selected="true" aria-controls="profile" data-page="profile">个人简介</button>
+        <button class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="resources" data-page="resources">课程资料与笔记</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page active" id="profile" role="tabpanel">
+      <div class="hero">
+        <section class="hero-main" aria-labelledby="profile-title">
+          <p class="eyebrow">Personal Profile</p>
+          <h1 id="profile-title">王洛源</h1>
+          <p class="lead">南方科技大学数据科学与大数据技术专业 2023 级本科在读，截至 2026 年 2 月绩点（GPA）为 3.76/4.00。</p>
+          <div class="quick-facts" aria-label="个人概览">
+            <div class="fact">
+              <span>院校与专业</span>
+              <strong>南方科技大学<br>数据科学与大数据技术</strong>
+            </div>
+            <div class="fact">
+              <span>本科阶段</span>
+              <strong>2023.9 - 2027.6<br>预计毕业</strong>
+            </div>
+            <div class="fact">
+              <span>当前 GPA</span>
+              <strong>3.76 / 4.00</strong>
+            </div>
+          </div>
+        </section>
+
+        <aside class="contact-panel" aria-labelledby="contact-title">
+          <div>
+            <h2 id="contact-title">联系方式</h2>
+            <p>可以通过邮箱或 GitHub 查看更多学习与项目记录。</p>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:12312515@mail.sustech.edu.cn">
+              <span>邮箱</span>
+              <span>12312515@mail.sustech.edu.cn</span>
+            </a>
+            <a class="contact-link" href="https://github.com/KiritaniH" target="_blank" rel="noopener noreferrer">
+              <span>GitHub</span>
+              <span>github.com/KiritaniH</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      <div class="content-grid">
+        <div>
+          <section class="section" aria-labelledby="education-title">
+            <div class="section-title">
+              <h2 id="education-title">学习经历</h2>
+              <span>Education</span>
+            </div>
+            <ol class="timeline">
+              <li><span class="time">2011.9 - 2017.6</span><span>山东师范大学附属小学 · 小学</span></li>
+              <li><span class="time">2017.9 - 2020.6</span><span>山东大学附属中学 · 初中</span></li>
+              <li><span class="time">2020.9 - 2023.6</span><span>济南振声实验学校 · 高中</span></li>
+              <li><span class="time">2023.9 - 2027.6</span><span>南方科技大学 · 大学本科阶段（预计）</span></li>
+            </ol>
+          </section>
+
+          <section class="section" aria-labelledby="projects-title">
+            <div class="section-title">
+              <h2 id="projects-title">主要参与课题/项目</h2>
+              <span>Projects</span>
+            </div>
+            <ol class="profile-list">
+              <li>
+                <h3>高级自然语言处理课程 Project</h3>
+                <p>修读研究生课程《高级自然语言处理》，在完成课程 project 的过程中，利用给定的 base model 完成数据生成和筛选，利用数据对模型进行 SFT 和 DPO 微调，随后搭建一个简单的智能体框架用于特定任务。掌握了实际应用中智能体框架训练的基本原理和流程。</p>
+              </li>
+              <li>
+                <h3>大数据分析软件及其应用课程项目</h3>
+                <p>在课程《大数据分析软件及其应用》中，Project 1 在本地配置了 OpenClaw，并导入到 QQ 机器人实现交互；Project 2 基于 DataMind-12K 数据库进行数据筛选，使用 Ray-Train 架构利用筛选后的数据训练模型，并将模型通过 Gradio 部署到网页上运行。</p>
+                <img class="project-image" src="assets/images/openclaw-project.png" alt="大数据分析软件及其应用项目效果图">
+              </li>
+              <li>
+                <h3>数据科学实践课程项目</h3>
+                <p>在课程《数据科学实践》中，使用 CLIP 模型框架进行训练，完成陨石图像二分类任务，测试集上的 F1-score 达到 70。</p>
+              </li>
+            </ol>
+          </section>
+
+          <section class="section" aria-labelledby="experience-title">
+            <div class="section-title">
+              <h2 id="experience-title">其他经历</h2>
+              <span>Experience</span>
+            </div>
+            <ol class="profile-list">
+              <li>
+                <p>在 2026 年 1 月的寒假实习中，参与山东师大基础教育集团教学资源平台建设与教研智联体研发相关工作，并深入参与智能体训练和提示词优化等工程，进一步了解理论知识在实际生活中的应用方式。</p>
+              </li>
+              <li>
+                <p>担任 2025 深圳统计与数据科学国际前沿会议志愿者，圆满完成志愿服务，同时接触到行业前沿相关知识。</p>
+              </li>
+            </ol>
+          </section>
+        </div>
+
+        <aside>
+          <section class="section" aria-labelledby="courses-profile-title">
+            <div class="section-title">
+              <h2 id="courses-profile-title">本科阶段主要修读专业课程</h2>
+              <span>Courses</span>
+            </div>
+            <div class="course-bands">
+              <div class="course-band">
+                <strong>A</strong>
+                <p>运筹与优化，线性代数，线性代数精讲，离散数学及其应用</p>
+              </div>
+              <div class="course-band">
+                <strong>A-</strong>
+                <p>数据科学导论，高级自然语言处理，应用随机过程，数理统计</p>
+              </div>
+              <div class="course-band">
+                <strong>B+</strong>
+                <p>概率论基础，数学分析精讲，计算机程序设计基础，生命科学概论，数据结构与算法分析，人工智能</p>
+              </div>
+              <div class="course-band">
+                <strong>修读中</strong>
+                <p>数据科学实践，多元统计分析，大数据分析软件及其应用，大语言模型的原理与应用</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" aria-labelledby="honors-title">
+            <div class="section-title">
+              <h2 id="honors-title">主要成绩荣誉</h2>
+              <span>Honors</span>
+            </div>
+            <ul class="profile-list">
+              <li><p>CET-4 获得 515 分，CET-6 获得 436 分，均已通过。</p></li>
+              <li><p>2025 年全国大学生数学竞赛（数学 B 类）广东省三等奖。</p></li>
+            </ul>
+          </section>
+
+          <section class="section" aria-labelledby="skills-title">
+            <div class="section-title">
+              <h2 id="skills-title">科研技能</h2>
+              <span>Skills</span>
+            </div>
+            <p>较为熟悉 Python 语言及 PyTorch 等，掌握基本 Java 语言程序编写，同时会用 R 语言进行基本的数据处理和分析。初步了解模型训练和机器学习的基本原理，能对训练结果进行初步评估并进一步调参。会使用 Python 进行数据可视化处理，会使用 LaTeX 进行结构化写作。</p>
+            <div class="tag-list" aria-label="科研技能标签">
+              <span class="tag">Python</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Java</span>
+              <span class="tag">R</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">LaTeX</span>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page" id="resources" role="tabpanel" hidden>
+      <div class="content-grid">
+        <div>
+          <section class="section" id="courses" aria-labelledby="courses-title">
+            <div class="section-title">
+              <h2 id="courses-title">课程资料</h2>
+              <span>course material/</span>
+            </div>
+            <div class="materials-browser" id="materials-browser">
+              <p class="material-loading">正在整理课程目录...</p>
+            </div>
+          </section>
+        </div>
+
+        <aside>
+          <section class="section" id="notes" aria-labelledby="notes-title">
+            <div class="section-title">
+              <h2 id="notes-title">笔记</h2>
+              <span>notes/</span>
+            </div>
+            <p>当前笔记目录已有入口说明，后续可以把课程笔记或复盘文档放入该目录，再在这里继续添加链接。</p>
+            <div class="tag-list" aria-label="笔记入口">
+              <a class="tag" href="notes/README.md">notes/README.md</a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 王洛源 · Personal Homepage</span>
+  </footer>
+
+  <script>
+    const REPO = "KiritaniH/KiritaniH.github.io";
+    const COURSE_ROOT = "course material/";
+    const COURSE_NAMES = {
+      "Big_Data_Analysis_Software_and_Application": "大数据分析软件及其应用",
+      "多元统计分析": "多元统计分析",
+      "大语言模型的原理与应用": "大语言模型的原理与应用",
+      "数据科学实践": "数据科学实践"
+    };
+
+    const browser = document.getElementById("materials-browser");
+    const tabs = document.querySelectorAll(".nav-tab");
+    const pages = document.querySelectorAll(".page");
+
+    function showPage(pageId) {
+      tabs.forEach((tab) => {
+        const active = tab.dataset.page === pageId;
+        tab.setAttribute("aria-selected", String(active));
+      });
+
+      pages.forEach((page) => {
+        const active = page.id === pageId;
+        page.classList.toggle("active", active);
+        page.hidden = !active;
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => showPage(tab.dataset.page));
+    });
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char]));
+    }
+
+    function fileName(path) {
+      return path.split("/").pop();
+    }
+
+    function extension(path) {
+      const name = fileName(path);
+      const dot = name.lastIndexOf(".");
+      return dot >= 0 ? name.slice(dot + 1).toLowerCase() : "file";
+    }
+
+    function encodePath(path) {
+      return path.split("/").map(encodeURIComponent).join("/");
+    }
+
+    function isVisibleMaterial(path) {
+      return path.startsWith(COURSE_ROOT)
+        && !path.includes("/.venv/")
+        && !path.includes("/__pycache__/")
+        && !path.endsWith(".pyc");
+    }
+
+    function groupMaterials(paths) {
+      const courses = new Map();
+
+      paths.filter(isVisibleMaterial).forEach((path) => {
+        const parts = path.slice(COURSE_ROOT.length).split("/");
+        const course = parts.shift();
+        const project = parts.length > 1 ? parts.shift() : "根目录材料";
+        const title = COURSE_NAMES[course] || course;
+
+        if (!courses.has(course)) {
+          courses.set(course, { title, projects: new Map(), count: 0 });
+        }
+
+        const courseGroup = courses.get(course);
+        if (!courseGroup.projects.has(project)) {
+          courseGroup.projects.set(project, []);
+        }
+
+        courseGroup.projects.get(project).push(path);
+        courseGroup.count += 1;
+      });
+
+      return courses;
+    }
+
+    function createMaterialLink(path) {
+      const link = document.createElement("a");
+      link.href = encodePath(path);
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.innerHTML = `<span>${escapeHtml(fileName(path))}</span><span class="material-type">${escapeHtml(extension(path))}</span>`;
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        openMaterial(path);
+      });
+      return link;
+    }
+
+    function renderMaterials(paths) {
+      const groups = groupMaterials(paths);
+      browser.innerHTML = "";
+
+      [...groups.entries()]
+        .sort((a, b) => a[1].title.localeCompare(b[1].title, "zh-Hans-CN"))
+        .forEach(([, course]) => {
+          const details = document.createElement("details");
+          details.className = "material-group";
+          details.innerHTML = `<summary><span>${escapeHtml(course.title)}</span><span class="material-count">${course.count} 项材料</span></summary>`;
+
+          const content = document.createElement("div");
+          content.className = "material-content";
+
+          [...course.projects.entries()]
+            .sort((a, b) => a[0].localeCompare(b[0], "zh-Hans-CN"))
+            .forEach(([project, files]) => {
+              const projectDetails = document.createElement("details");
+              projectDetails.className = "material-subgroup";
+              projectDetails.innerHTML = `<summary><span>${escapeHtml(project)}</span><span class="material-count">${files.length} 项</span></summary>`;
+
+              const list = document.createElement("ul");
+              list.className = "material-list";
+              files.sort((a, b) => fileName(a).localeCompare(fileName(b), "zh-Hans-CN")).forEach((path) => {
+                const item = document.createElement("li");
+                item.appendChild(createMaterialLink(path));
+                list.appendChild(item);
+              });
+
+              projectDetails.appendChild(list);
+              content.appendChild(projectDetails);
+            });
+
+          details.appendChild(content);
+          browser.appendChild(details);
+        });
+    }
+
+    function markdownToHtml(markdown) {
+      const lines = escapeHtml(markdown).split(/\r?\n/);
+      let inList = false;
+      const html = [];
+
+      lines.forEach((line) => {
+        const heading = line.match(/^(#{1,6})\s+(.*)$/);
+        const bullet = line.match(/^[-*]\s+(.*)$/);
+
+        if (heading) {
+          if (inList) {
+            html.push("</ul>");
+            inList = false;
+          }
+          html.push(`<h${heading[1].length}>${heading[2]}</h${heading[1].length}>`);
+        } else if (bullet) {
+          if (!inList) {
+            html.push("<ul>");
+            inList = true;
+          }
+          html.push(`<li>${bullet[1]}</li>`);
+        } else if (!line.trim()) {
+          if (inList) {
+            html.push("</ul>");
+            inList = false;
+          }
+        } else {
+          if (inList) {
+            html.push("</ul>");
+            inList = false;
+          }
+          html.push(`<p>${line}</p>`);
+        }
+      });
+
+      if (inList) {
+        html.push("</ul>");
+      }
+
+      return html.join("\n");
+    }
+
+    function viewerShell(title, body) {
+      return `<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(title)}</title>
+  <style>
+    body { margin: 0; background: #f7f8fb; color: #202734; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif; line-height: 1.7; }
+    header { position: sticky; top: 0; padding: 14px 18px; border-bottom: 1px solid #dbe3ec; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); }
+    header strong { display: block; overflow-wrap: anywhere; }
+    header a { color: #1d4f48; }
+    main { width: min(1000px, calc(100% - 32px)); margin: 0 auto; padding: 24px 0 40px; }
+    iframe { width: 100%; height: calc(100vh - 118px); border: 1px solid #dbe3ec; border-radius: 8px; background: #fff; }
+    img { display: block; max-width: 100%; height: auto; margin: 0 auto; border: 1px solid #dbe3ec; border-radius: 8px; background: #fff; }
+    article, pre, .notice { padding: 24px; border: 1px solid #dbe3ec; border-radius: 8px; background: #fff; box-shadow: 0 16px 44px rgba(33,45,65,0.08); }
+    article { overflow-wrap: anywhere; }
+    pre { overflow: auto; white-space: pre-wrap; }
+    .notice a { color: #1d4f48; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><strong>${escapeHtml(title)}</strong><a href="${encodePath(title)}" target="_blank" rel="noopener noreferrer">打开原文件</a></header>
+  <main>${body}</main>
+</body>
+</html>`;
+    }
+
+    async function openMaterial(path) {
+      const url = encodePath(path);
+      const type = extension(path);
+      const tab = window.open("", "_blank");
+
+      if (!tab) {
+        window.location.href = url;
+        return;
+      }
+
+      tab.document.open();
+      tab.document.write(viewerShell(path, '<p class="notice">正在加载材料...</p>'));
+      tab.document.close();
+
+      let body;
+      if (["pdf"].includes(type)) {
+        body = `<iframe src="${url}" title="${escapeHtml(fileName(path))}"></iframe>`;
+      } else if (["png", "jpg", "jpeg", "gif", "webp", "svg"].includes(type)) {
+        body = `<img src="${url}" alt="${escapeHtml(fileName(path))}">`;
+      } else if (["md", "markdown"].includes(type)) {
+        const text = await fetch(url).then((response) => response.text());
+        body = `<article>${markdownToHtml(text)}</article>`;
+      } else if (["txt", "csv", "json", "py", "sh", "yml", "yaml", "ipynb"].includes(type)) {
+        const text = await fetch(url).then((response) => response.text());
+        body = `<pre>${escapeHtml(text)}</pre>`;
+      } else {
+        body = `<p class="notice">此类型文件适合下载或使用本地软件查看。<br><a href="${url}" target="_blank" rel="noopener noreferrer">打开或下载原文件</a></p>`;
+      }
+
+      tab.document.open();
+      tab.document.write(viewerShell(path, body));
+      tab.document.close();
+    }
+
+    async function loadMaterials() {
+      const branches = ["main", "master"];
+      let lastError;
+
+      for (const branch of branches) {
+        try {
+          const response = await fetch(`https://api.github.com/repos/${REPO}/git/trees/${branch}?recursive=1`);
+          if (!response.ok) {
+            throw new Error(`GitHub API ${response.status}`);
+          }
+          const data = await response.json();
+          renderMaterials(data.tree.filter((item) => item.type === "blob").map((item) => item.path));
+          return;
+        } catch (error) {
+          lastError = error;
+        }
+      }
+
+      browser.innerHTML = `<p class="material-loading">课程目录暂时无法自动加载。请稍后刷新页面，或直接访问 <a href="course%20material/README.md">course material/README.md</a>。</p>`;
+      console.error(lastError);
+    }
+
+    loadMaterials();
+  </script>
+</body>
+</html>

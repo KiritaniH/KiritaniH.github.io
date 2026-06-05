@@ -1,2 +1,3 @@
 # KiritaniH.github.io
-Now
+
+Personal academic homepage built with GitHub Pages.

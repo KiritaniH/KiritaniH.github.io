@@ -1,0 +1,31 @@
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/03/31 05:05:48 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/03/31 05:05:48 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[Stage 1:===========================================>                                                                                                                                 (1 + 3) / 4]                                                                                                                                                                                                  ============================================================
+Diabetes_012 类别统计 (DataFrame API)
+============================================================
+总样本数：253680
+
++------------+------+----------+
+|Diabetes_012| count|percentage|
++------------+------+----------+
+|         0.0|213703|     84.24|
+|         1.0|  4631|      1.83|
+|         2.0| 35346|     13.93|
++------------+------+----------+
+
+============================================================
+详细结果:
+============================================================
+Diabetes_012 = 0 (无糖尿病):
+  样本数：213,703
+  占比：84.24%
+Diabetes_012 = 1 (有糖尿病):
+  样本数：4,631
+  占比：1.83%
+Diabetes_012 = 2 (有糖尿病):
+  样本数：35,346
+  占比：13.93%

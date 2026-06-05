@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+  absurd-ai-backend:
+    image: python:3.11-slim
+    container_name: absurd_ai_backend
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: >
+      sh -c "pip install -r requirements.txt &&
+             uvicorn main:app --host 0.0.0.0 --port 8000"
+    ports:
+      - "8001:8000"
+    environment:
+      - DATABASE_URL=postgresql://absurd_user:absurd_password@absurd-ai-postgres:5432/absurd_ai_db
+      - REDIS_URL=redis://absurd-ai-redis:6379/0
+      - LLM_API_URL=http://llm-gateway:9000/generate
+      - SESSION_TTL_SECONDS=3600
+    depends_on:
+      - absurd-ai-postgres
+      - absurd-ai-redis
+      - llm-gateway
+
+  absurd-ai-frontend:
+    image: node:20-alpine
+    container_name: absurd_ai_frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: >
+      sh -c "npm install &&
+             npm run dev -- --host 0.0.0.0"
+    ports:
+      - "3001:3000"
+    depends_on:
+      - absurd-ai-backend
+
+  llm-gateway:
+    image: python:3.11-slim
+    container_name: absurd_ai_llm_gateway
+    working_dir: /app
+    volumes:
+      - ./llm_gateway:/app
+    command: >
+      sh -c "pip install -r requirements.txt &&
+             uvicorn main:app --host 0.0.0.0 --port 9000"
+    environment:
+      - LLM_PROVIDER=openai_or_local_model
+      - LLM_API_KEY=${LLM_API_KEY}
+      - DEFAULT_MODEL=gpt-or-local-model
+    ports:
+      - "9001:9000"
+
+  absurd-ai-postgres:
+    image: postgres:15
+    container_name: absurd_ai_postgres
+    environment:
+      - POSTGRES_USER=absurd_user
+      - POSTGRES_PASSWORD=absurd_password
+      - POSTGRES_DB=absurd_ai_db
+    volumes:
+      - absurd_ai_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  absurd-ai-redis:
+    image: redis:7-alpine
+    container_name: absurd_ai_redis
+    ports:
+      - "6380:6379"
+
+volumes:
+  absurd_ai_postgres_data:

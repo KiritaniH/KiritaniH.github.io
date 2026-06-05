@@ -1,0 +1,72 @@
+{
+  "concurrency": {
+    "1": {
+      "wall_time_s": 19.886401500029024,
+      "p50_latency_s": 1.292099199956283,
+      "p95_latency_s": 1.362246899981983,
+      "p99_latency_s": 1.374270299973432,
+      "mean_latency_s": 1.2423658749830793,
+      "std_latency_s": 0.10888238994037991,
+      "total_tokens": 512,
+      "tokens_per_sec": 25.746236693413476,
+      "num_requests": 16
+    },
+    "2": {
+      "wall_time_s": 19.103587299992796,
+      "p50_latency_s": 2.3652322000125423,
+      "p95_latency_s": 2.5574263999587856,
+      "p99_latency_s": 2.59445340000093,
+      "mean_latency_s": 2.3870924249968084,
+      "std_latency_s": 0.10204614414157659,
+      "total_tokens": 512,
+      "tokens_per_sec": 26.801248998935037,
+      "num_requests": 16
+    },
+    "4": {
+      "wall_time_s": 16.092708399984986,
+      "p50_latency_s": 4.022755700047128,
+      "p95_latency_s": 4.054215500014834,
+      "p99_latency_s": 4.060327799990773,
+      "mean_latency_s": 4.011006537504727,
+      "std_latency_s": 0.03722562418162917,
+      "total_tokens": 512,
+      "tokens_per_sec": 31.81565136670703,
+      "num_requests": 16
+    },
+    "8": {
+      "wall_time_s": 15.670011700014584,
+      "p50_latency_s": 7.9174166999873705,
+      "p95_latency_s": 8.083118000009563,
+      "p99_latency_s": 8.10467349999817,
+      "mean_latency_s": 7.785808256245218,
+      "std_latency_s": 0.2679530432088634,
+      "total_tokens": 512,
+      "tokens_per_sec": 32.67387477442174,
+      "num_requests": 16
+    }
+  },
+  "workload": {
+    "short": {
+      "wall_time_s": 16.22856730001513,
+      "p50_latency_s": 3.960256400052458,
+      "p95_latency_s": 4.3124413000186905,
+      "p99_latency_s": 4.378383699979167,
+      "mean_latency_s": 3.999037350007711,
+      "std_latency_s": 0.17689955179077263,
+      "total_tokens": 512,
+      "tokens_per_sec": 31.5493038008058,
+      "num_requests": 16
+    },
+    "reasoning": {
+      "wall_time_s": 63.17813020001631,
+      "p50_latency_s": 15.938104700006079,
+      "p95_latency_s": 16.04911980003817,
+      "p99_latency_s": 16.08169550000457,
+      "mean_latency_s": 15.768221699989226,
+      "std_latency_s": 0.3832157819109135,
+      "total_tokens": 2048,
+      "tokens_per_sec": 32.41628065781965,
+      "num_requests": 16
+    }
+  }
+}

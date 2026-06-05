@@ -1,0 +1,26 @@
+{
+  "n_strategies": 20,
+  "n_real_clients": 3,
+  "n_synthetic_clients": 25,
+  "n_total": 48,
+  "features": [
+    "log_trade_freq",
+    "avg_hold_days",
+    "turnover_rate",
+    "log_avg_trade_amount",
+    "buy_sell_ratio",
+    "trade_regularity",
+    "num_stocks",
+    "concentration_top3",
+    "concentration_top1",
+    "avg_position_pct",
+    "position_peak_ratio",
+    "stock_turnover",
+    "avg_return_pct",
+    "win_rate",
+    "profit_loss_ratio",
+    "max_drawdown",
+    "return_volatility",
+    "sharpe_approx"
+  ]
+}
