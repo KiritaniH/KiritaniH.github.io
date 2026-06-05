@@ -263,6 +263,11 @@
       align-items: start;
     }
 
+    .wide-content {
+      width: min(960px, 100%);
+      margin: 0 auto;
+    }
+
     .section {
       padding: 26px;
       margin-bottom: 20px;
@@ -341,6 +346,69 @@
       max-width: 760px;
       height: auto;
       margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .notes-layout {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.32fr) minmax(0, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .note-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .note-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: var(--text);
+      font: inherit;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .note-button:hover {
+      border-color: rgba(45, 111, 102, 0.45);
+    }
+
+    .note-button[aria-selected="true"] {
+      border-color: rgba(45, 111, 102, 0.62);
+      background: var(--surface-soft);
+      color: var(--accent-dark);
+    }
+
+    .note-type {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .note-viewer {
+      display: grid;
+      grid-template-rows: auto minmax(520px, 68vh);
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .note-viewer iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fbfcfd;
@@ -485,7 +553,8 @@
 
     @media (max-width: 900px) {
       .hero,
-      .content-grid {
+      .content-grid,
+      .notes-layout {
         grid-template-columns: 1fr;
       }
 
@@ -502,7 +571,7 @@
 
       .nav-tabs {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         width: 100%;
       }
 
@@ -551,7 +620,8 @@
       </div>
       <div class="nav-tabs" role="tablist" aria-label="页面切换">
         <button class="nav-tab" type="button" role="tab" aria-selected="true" aria-controls="profile" data-page="profile">个人简介</button>
-        <button class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="resources" data-page="resources">课程资料与笔记</button>
+        <button class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="courses" data-page="courses">课程资料</button>
+        <button class="nav-tab" type="button" role="tab" aria-selected="false" aria-controls="notes" data-page="notes">课程笔记</button>
       </div>
     </nav>
   </header>
@@ -570,7 +640,7 @@
             </div>
             <div class="fact">
               <span>本科阶段</span>
-              <strong>2023.9 - 2027.6<br>预计毕业</strong>
+              <strong>2023.9 - 2027.6</strong>
             </div>
             <div class="fact">
               <span>当前 GPA</span>
@@ -608,7 +678,7 @@
               <li><span class="time">2011.9 - 2017.6</span><span>山东师范大学附属小学 · 小学</span></li>
               <li><span class="time">2017.9 - 2020.6</span><span>山东大学附属中学 · 初中</span></li>
               <li><span class="time">2020.9 - 2023.6</span><span>济南振声实验学校 · 高中</span></li>
-              <li><span class="time">2023.9 - 2027.6</span><span>南方科技大学 · 大学本科阶段（预计）</span></li>
+              <li><span class="time">2023.9 - 2027.6</span><span>南方科技大学 · 大学本科阶段</span></li>
             </ol>
           </section>
 
@@ -626,10 +696,6 @@
                 <h3>大数据分析软件及其应用课程项目</h3>
                 <p>在课程《大数据分析软件及其应用》中，Project 1 在本地配置了 OpenClaw，并导入到 QQ 机器人实现交互；Project 2 基于 DataMind-12K 数据库进行数据筛选，使用 Ray-Train 架构利用筛选后的数据训练模型，并将模型通过 Gradio 部署到网页上运行。</p>
                 <img class="project-image" src="assets/images/openclaw-project.png" alt="大数据分析软件及其应用项目效果图">
-              </li>
-              <li>
-                <h3>数据科学实践课程项目</h3>
-                <p>在课程《数据科学实践》中，使用 CLIP 模型框架进行训练，完成陨石图像二分类任务，测试集上的 F1-score 达到 70。</p>
               </li>
             </ol>
           </section>
@@ -666,25 +732,10 @@
                 <p>数据科学导论，高级自然语言处理，应用随机过程，数理统计</p>
               </div>
               <div class="course-band">
-                <strong>B+</strong>
-                <p>概率论基础，数学分析精讲，计算机程序设计基础，生命科学概论，数据结构与算法分析，人工智能</p>
-              </div>
-              <div class="course-band">
                 <strong>修读中</strong>
                 <p>数据科学实践，多元统计分析，大数据分析软件及其应用，大语言模型的原理与应用</p>
               </div>
             </div>
-          </section>
-
-          <section class="section" aria-labelledby="honors-title">
-            <div class="section-title">
-              <h2 id="honors-title">主要成绩荣誉</h2>
-              <span>Honors</span>
-            </div>
-            <ul class="profile-list">
-              <li><p>CET-4 获得 515 分，CET-6 获得 436 分，均已通过。</p></li>
-              <li><p>2025 年全国大学生数学竞赛（数学 B 类）广东省三等奖。</p></li>
-            </ul>
           </section>
 
           <section class="section" aria-labelledby="skills-title">
@@ -706,33 +757,47 @@
       </div>
     </section>
 
-    <section class="page" id="resources" role="tabpanel" hidden>
-      <div class="content-grid">
-        <div>
-          <section class="section" id="courses" aria-labelledby="courses-title">
-            <div class="section-title">
-              <h2 id="courses-title">课程资料</h2>
-              <span>course material/</span>
-            </div>
-            <div class="materials-browser" id="materials-browser">
-              <p class="material-loading">正在整理课程目录...</p>
-            </div>
-          </section>
-        </div>
-
-        <aside>
-          <section class="section" id="notes" aria-labelledby="notes-title">
-            <div class="section-title">
-              <h2 id="notes-title">笔记</h2>
-              <span>notes/</span>
-            </div>
-            <p>当前笔记目录已有入口说明，后续可以把课程笔记或复盘文档放入该目录，再在这里继续添加链接。</p>
-            <div class="tag-list" aria-label="笔记入口">
-              <a class="tag" href="notes/README.md">notes/README.md</a>
-            </div>
-          </section>
-        </aside>
+    <section class="page" id="courses" role="tabpanel" hidden>
+      <div class="wide-content">
+        <section class="section" aria-labelledby="courses-title">
+          <div class="section-title">
+            <h2 id="courses-title">课程资料</h2>
+            <span>course material/</span>
+          </div>
+          <div class="materials-browser" id="materials-browser">
+            <p class="material-loading">正在整理课程目录...</p>
+          </div>
+        </section>
       </div>
+    </section>
+
+    <section class="page" id="notes" role="tabpanel" hidden>
+      <section class="section" aria-labelledby="notes-title">
+        <div class="section-title">
+          <h2 id="notes-title">课程笔记</h2>
+          <span>notes/</span>
+        </div>
+        <div class="notes-layout">
+          <div class="note-list" role="tablist" aria-label="课程笔记列表">
+            <button class="note-button" type="button" role="tab" aria-selected="true" data-note="notes/运筹与优化.pdf">
+              <span>运筹与优化</span>
+              <span class="note-type">PDF</span>
+            </button>
+            <button class="note-button" type="button" role="tab" aria-selected="false" data-note="notes/统计线性模型.pdf">
+              <span>统计线性模型</span>
+              <span class="note-type">PDF</span>
+            </button>
+            <button class="note-button" type="button" role="tab" aria-selected="false" data-note="notes/数理统计.pdf">
+              <span>数理统计</span>
+              <span class="note-type">PDF</span>
+            </button>
+          </div>
+          <div class="note-viewer">
+            <p id="note-viewer-title">当前笔记：运筹与优化</p>
+            <iframe id="note-frame" src="notes/%E8%BF%90%E7%AD%B9%E4%B8%8E%E4%BC%98%E5%8C%96.pdf" title="运筹与优化课程笔记"></iframe>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
@@ -747,12 +812,18 @@
       "Big_Data_Analysis_Software_and_Application": "大数据分析软件及其应用",
       "多元统计分析": "多元统计分析",
       "大语言模型的原理与应用": "大语言模型的原理与应用",
-      "数据科学实践": "数据科学实践"
+      "数据科学实践": "数据科学实践",
+      "高级自然语言处理": "高级自然语言处理",
+      "统计线性模型": "统计线性模型",
+      "人工智能B": "人工智能 B"
     };
 
     const browser = document.getElementById("materials-browser");
     const tabs = document.querySelectorAll(".nav-tab");
     const pages = document.querySelectorAll(".page");
+    const noteButtons = document.querySelectorAll(".note-button");
+    const noteFrame = document.getElementById("note-frame");
+    const noteViewerTitle = document.getElementById("note-viewer-title");
 
     function showPage(pageId) {
       tabs.forEach((tab) => {
@@ -771,6 +842,17 @@
 
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => showPage(tab.dataset.page));
+    });
+
+    noteButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        noteButtons.forEach((item) => {
+          item.setAttribute("aria-selected", String(item === button));
+        });
+        noteFrame.src = encodePath(button.dataset.note);
+        noteFrame.title = `${button.querySelector("span").textContent}课程笔记`;
+        noteViewerTitle.textContent = `当前笔记：${button.querySelector("span").textContent}`;
+      });
     });
 
     function escapeHtml(value) {
