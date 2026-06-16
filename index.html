@@ -632,7 +632,7 @@
         <section class="hero-main" aria-labelledby="profile-title">
           <p class="eyebrow">Personal Profile</p>
           <h1 id="profile-title">王洛源</h1>
-          <p class="lead">南方科技大学数据科学与大数据技术专业 2023 级本科在读，截至 2026 年 2 月绩点（GPA）为 3.76/4.00。</p>
+          <p class="lead">南方科技大学数据科学与大数据技术专业 2023 级本科在读，截至 2026 年 5 月绩点（GPA）为 3.76/4.00。</p>
           <div class="quick-facts" aria-label="个人概览">
             <div class="fact">
               <span>院校与专业</span>
@@ -675,8 +675,6 @@
               <span>Education</span>
             </div>
             <ol class="timeline">
-              <li><span class="time">2011.9 - 2017.6</span><span>山东师范大学附属小学 · 小学</span></li>
-              <li><span class="time">2017.9 - 2020.6</span><span>山东大学附属中学 · 初中</span></li>
               <li><span class="time">2020.9 - 2023.6</span><span>济南振声实验学校 · 高中</span></li>
               <li><span class="time">2023.9 - 2027.6</span><span>南方科技大学 · 大学本科阶段</span></li>
             </ol>
@@ -689,13 +687,17 @@
             </div>
             <ol class="profile-list">
               <li>
-                <h3>高级自然语言处理课程 Project</h3>
-                <p>修读研究生课程《高级自然语言处理》，在完成课程 project 的过程中，利用给定的 base model 完成数据生成和筛选，利用数据对模型进行 SFT 和 DPO 微调，随后搭建一个简单的智能体框架用于特定任务。掌握了实际应用中智能体框架训练的基本原理和流程。</p>
+                <h3>搭建基于大语言模型的智能辅助学习系统框架</h3>
+                <p>基于修读研究生课程《高级自然语言处理》所学知识，通过 Self-Instruct 和基于模板的系统化合成两种方式进行SFT数据生成，并利用多候选生成 + 强模型评审等方法生成DPO数据，再基于数据质量和多样性对生成数据进行筛选，随后利用筛选后的数据对模型进行 SFT 和 DPO 微调，再搭建一个简单的智能体框架用于大模型辅助学习任务。最后整个项目成功跑通，扎实掌握了实际应用中智能体框架训练的基本原理和流程。</p>
               </li>
               <li>
-                <h3>大数据分析软件及其应用课程项目</h3>
-                <p>在课程《大数据分析软件及其应用》中，Project 1 在本地配置了 OpenClaw，并导入到 QQ 机器人实现交互；Project 2 基于 DataMind-12K 数据库进行数据筛选，使用 Ray-Train 架构利用筛选后的数据训练模型，并将模型通过 Gradio 部署到网页上运行。</p>
+                <h3>训练并部署用于数据科学任务辅助的模型</h3>
+                <p>基于 DataMind-12K 数据库进行数据筛选，使用 Ray-Train 架构利用筛选后的数据训练模型，并将模型通过 Gradio 部署到网页上运行。</p>
                 <img class="project-image" src="assets/images/openclaw-project.png" alt="大数据分析软件及其应用项目效果图">
+              </li>
+              <li>
+                <h3>搭建基于openclaw的智能体并配置skill完成AI输出内容的证据链追踪工作</h3>
+                <p>配置基于大模型的个人智能助手系统（openclaw），部署至即时通讯平台实现自动化交互，同时独立完成了两个分别用于规范输出格式和检验AI输出内容是否有证据支持的skill，用来完成AI4Science领域的证据链追踪工作。</p>
               </li>
             </ol>
             <p>其他项目和更多细节可以在“课程资料”栏目中查看。</p>
